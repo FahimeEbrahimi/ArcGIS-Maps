@@ -8,23 +8,54 @@ These maps support research on hospital consolidation and its effects on healthc
 
 ## Maps
 
-### US Hospital Market Concentration (2023)
-- [`maps/US_HHI_2023.pdf`](maps/US_HHI_2023.pdf) — County-level choropleth of static admissions-based HHI across the continental US
+### Static Admissions HHI (HSA Level)
+Maps based on static (base-year) admission shares — the primary concentration measure.
+
+| Map | Description |
+|-----|-------------|
+| [`US_Static_HHI_2008.pdf`](maps/static-hhi/US_Static_HHI_2008.pdf) | US county-level static HHI, 2008 |
+| [`US_Static_HHI_2019.pdf`](maps/static-hhi/US_Static_HHI_2019.pdf) | US county-level static HHI, 2019 |
+| [`US_Static_HHI_Change_2008_2019.pdf`](maps/static-hhi/US_Static_HHI_Change_2008_2019.pdf) | Change in static HHI (2008–2019); red = increase, green = decrease |
+
+### Annual Admissions HHI (HSA Level)
+Maps based on annual (contemporaneous) admission shares — a sensitivity measure.
+
+| Map | Description |
+|-----|-------------|
+| [`US_Annual_HHI_2008.pdf`](maps/annual-hhi/US_Annual_HHI_2008.pdf) | US county-level annual HHI, 2008 |
+| [`US_Annual_HHI_2019.pdf`](maps/annual-hhi/US_Annual_HHI_2019.pdf) | US county-level annual HHI, 2019 |
+| [`US_Annual_HHI_Change_2008_2019.pdf`](maps/annual-hhi/US_Annual_HHI_Change_2008_2019.pdf) | Change in annual HHI (2008–2019) |
 
 ### New England Regional Maps
-- [`maps/NewEngland_County_HHI.pdf`](maps/NewEngland_County_HHI.pdf) — County-level HHI for the six New England states
-- [`maps/NewEngland_HSA_HHI.pdf`](maps/NewEngland_HSA_HHI.pdf) — HSA-level HHI for New England
+| Map | Description |
+|-----|-------------|
+| [`NE_HHI_2023.pdf`](maps/new-england/NE_HHI_2023.pdf) | New England county-level HHI |
+| [`NE_4States_Buffer.pdf`](maps/new-england/NE_4States_Buffer.pdf) | Four-state buffer region with state borders |
 
-### Time-Series Plots (SAS SGPLOT)
-- [`plots/NE_States_HHI_OverTime.png`](plots/NE_States_HHI_OverTime.png) — Population-weighted HHI trends for each New England state vs. the US average (1995–2023)
-- [`plots/NH_HSA_HHI_OverTime.png`](plots/NH_HSA_HHI_OverTime.png) — HHI trends by HSA within New Hampshire
+### New Hampshire Detail Maps
+| Map | Description |
+|-----|-------------|
+| [`NH_Neighboring_HSA_Counties.pdf`](maps/new-hampshire/NH_Neighboring_HSA_Counties.pdf) | NH and neighboring HSA counties |
+| [`NH_HSAs_Buffer.pdf`](maps/new-hampshire/NH_HSAs_Buffer.pdf) | NH HSAs with buffer region |
+
+### Legends
+| Legend | Used for |
+|--------|----------|
+| [`legend_hhi_levels.jpg`](maps/legends/legend_hhi_levels.jpg) | HHI level maps (blue scale, 0–10) |
+| [`legend_hhi_changes.jpg`](maps/legends/legend_hhi_changes.jpg) | HHI change maps (green = decrease, red = increase) |
+
+### Time-Series Plots (SAS)
+| Plot | Description |
+|------|-------------|
+| [`NE_States_HHI_OverTime.png`](plots/NE_States_HHI_OverTime.png) | Population-weighted HHI trends by New England state vs. US (1995–2023) |
+| [`NH_HSA_HHI_OverTime.png`](plots/NH_HSA_HHI_OverTime.png) | HHI trends by HSA within New Hampshire |
 
 ## Code
 
 | File | Description |
 |------|-------------|
-| [`code/HHI_ADMSTC_HSA_2008_2019.sas`](code/HHI_ADMSTC_HSA_2008_2019.sas) | Generates county-level static HHI data (2008, 2019, change) as DBF files for ArcGIS |
-| [`code/HHI_HSA_NE_Plots.sas`](code/HHI_HSA_NE_Plots.sas) | Computes population-weighted HHI by state/region and generates time-series plots |
+| [`HHI_ADMSTC_HSA_2008_2019.sas`](code/HHI_ADMSTC_HSA_2008_2019.sas) | Generates county-level static HHI data (2008, 2019, change) as DBF files for ArcGIS |
+| [`HHI_HSA_NE_Plots.sas`](code/HHI_HSA_NE_Plots.sas) | Computes population-weighted HHI by state/region and generates time-series plots |
 
 ## Data Sources
 
