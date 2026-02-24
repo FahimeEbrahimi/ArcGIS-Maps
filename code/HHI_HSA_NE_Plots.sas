@@ -1,9 +1,18 @@
-/*SAS code to make excel files for each year to make HSA HHI maps*/
-libname mylib "C:\Users\ebrah\OneDrive - USNH\UNH\Thesis\Brad Data Shared\Data\Counties";
+/* SAS code to compute population-weighted HHI by state/region and plot trends */
+/* Generates time-series of hospital market concentration for New England      */
+/* states, New England aggregate, and the US as a whole.                       */
+/*                                                                             */
+/* NOTE: The underlying county-level data is derived from the American Hospital*/
+/* Association (AHA) Annual Survey, which requires a license. Update the       */
+/* libname and dataset name below to point to your own licensed copy.          */
 
-data work.counties2023;
-    set mylib.counties20250819(keep=STATEABBRV YEAR CYTTLPOPX HSACODE HSANAME HHI_ADMANN_HSA);
-run;
+libname mylib "<YOUR_DATA_DIRECTORY>";
+
+/* Required variables in the counties dataset:                       */
+/*   STATEABBRV  — two-letter state abbreviation                     */
+/*   YEAR        — survey year                                       */
+/*   CYTTLPOPX   — county total population (for weighting)           */
+/*   HHI_ADMANN_HSA — annual admissions-based HHI at the HSA level   */
 
 /***************************************************/
 /* Define New England States */
@@ -44,19 +53,15 @@ proc sql;
     group by YEAR;
 quit;
 
-/* Combine all 7 series */
+/* Combine all series */
 data final_hhi_plot;
     set NE_states NE_total US_total;
 run;
 
-/* Plot the 7 curves */
+/* Plot the curves */
 proc sgplot data=final_hhi_plot;
     series x=YEAR y=weighted_HHI / group=STATEABBRV lineattrs=(thickness=2);
     xaxis label="Year";
     yaxis label="Population-Weighted HHI (HSA)";
     title "Population-Weighted HHI Over Time (USA, New England, and States)";
 run;
-/***********************************************************************/
-
-
-/****************************************************************************************************/

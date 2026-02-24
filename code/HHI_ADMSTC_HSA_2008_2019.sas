@@ -2,10 +2,15 @@
 /* Uses HHI_ADMSTC_HSA (static admission HHI) instead of HHI_ADMANN_HSA (annual) */
 /* Outputs DBF files for direct use in ArcGIS                                     */
 /* GEOID = zero-padded 5-char FIPS to match counties2021 shapefile GEOID field    */
+/*                                                                                */
+/* NOTE: The underlying county-level data is derived from the American Hospital   */
+/* Association (AHA) Annual Survey, which requires a license. The HHI variable    */
+/* is pre-computed from hospital admission shares within each HSA. Update the     */
+/* libname and dataset name below to point to your own licensed copy.             */
 
-libname mylib "C:\Users\ebrah\OneDrive - USNH\UNH\Thesis\Brad Data Shared\Data\Counties";
+libname mylib "<YOUR_DATA_DIRECTORY>";
 
-%let outdir = C:\Users\ebrah\OneDrive - USNH\UNH\Herring\Data\map;
+%let outdir = <YOUR_OUTPUT_DIRECTORY>;
 
 /*======================================================================*/
 /* DIAGNOSTIC: Check HHI_ADMSTC_HSA availability for 2008 and 2019     */
@@ -14,7 +19,7 @@ proc sql;
     select YEAR, count(*) as n_counties,
            nmiss(HHI_ADMSTC_HSA) as n_missing_hhi,
            count(HHI_ADMSTC_HSA) as n_nonmissing_hhi
-    from mylib.counties20251003
+    from mylib.counties
     where YEAR in (2008, 2019)
     group by YEAR;
     title "Static HHI row counts for 2008 and 2019";
@@ -24,7 +29,7 @@ quit;
 /* 2008 Static HHI by county                                           */
 /*======================================================================*/
 data work.counties2008;
-    set mylib.counties20251003(keep=FIPSCODE HSACODE HSANAME HHI_ADMSTC_HSA YEAR);
+    set mylib.counties(keep=FIPSCODE HSACODE HSANAME HHI_ADMSTC_HSA YEAR);
     where YEAR = 2008;
     /* Convert numeric FIPSCODE to 5-char zero-padded string to match shapefile */
     length GEOID $5;
@@ -47,7 +52,7 @@ run;
 /* 2019 Static HHI by county                                           */
 /*======================================================================*/
 data work.counties2019;
-    set mylib.counties20251003(keep=FIPSCODE HSACODE HSANAME HHI_ADMSTC_HSA YEAR);
+    set mylib.counties(keep=FIPSCODE HSACODE HSANAME HHI_ADMSTC_HSA YEAR);
     where YEAR = 2019;
     /* Convert numeric FIPSCODE to 5-char zero-padded string to match shapefile */
     length GEOID $5;

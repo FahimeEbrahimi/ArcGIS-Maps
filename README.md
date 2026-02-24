@@ -32,6 +32,8 @@ These maps support research on hospital consolidation and its effects on healthc
 - **Market definitions:** Dartmouth Atlas Health Service Areas (HSAs)
 - **Boundaries:** US Census Bureau TIGER/Line county shapefiles
 
+> **Note:** The underlying hospital data requires a license from the AHA. The SAS code is provided to demonstrate methodology; update the `libname` paths to point to your own licensed data. Raw data is not included in this repository.
+
 ## Tools
 
 - ArcGIS Pro (choropleth maps)
