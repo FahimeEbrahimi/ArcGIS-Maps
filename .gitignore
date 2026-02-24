@@ -1,0 +1,38 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ArcGIS project files
+*.aprx
+*.atbx
+*.gdb/
+*.mapx
+*.pagx
+*.lyrx
+
+# Shapefiles (public, large)
+*.shp
+*.shx
+*.dbf
+*.sbn
+*.sbx
+*.prj
+*.cpg
+*.shp.xml
+
+# Data files
+*.dta
+*.xlsx
+*.xls
+*.csv
+*.csvt
+*.rda
+*.zip
+*.bak
+
+# Logs
+*.log
+
+# R
+.Rhistory
