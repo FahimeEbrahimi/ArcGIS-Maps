@@ -38,11 +38,6 @@ Maps based on annual (contemporaneous) admission shares — a sensitivity measur
 | [`NH_Neighboring_HSA_Counties.pdf`](maps/new-hampshire/NH_Neighboring_HSA_Counties.pdf) | NH and neighboring HSA counties |
 | [`NH_HSAs_Buffer.pdf`](maps/new-hampshire/NH_HSAs_Buffer.pdf) | NH HSAs with buffer region |
 
-### Legends
-| Legend | Used for |
-|--------|----------|
-| [`legend_hhi_levels.jpg`](maps/legends/legend_hhi_levels.jpg) | HHI level maps (blue scale, 0–10) |
-| [`legend_hhi_changes.jpg`](maps/legends/legend_hhi_changes.jpg) | HHI change maps (green = decrease, red = increase) |
 
 ### Time-Series Plots (SAS)
 | Plot | Description |
