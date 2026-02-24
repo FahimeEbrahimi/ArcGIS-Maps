@@ -38,20 +38,15 @@ Maps based on annual (contemporaneous) admission shares — a sensitivity measur
 | [`NH_Neighboring_HSA_Counties.pdf`](maps/new-hampshire/NH_Neighboring_HSA_Counties.pdf) | NH and neighboring HSA counties |
 | [`NH_HSAs_Buffer.pdf`](maps/new-hampshire/NH_HSAs_Buffer.pdf) | NH HSAs with buffer region |
 
-
 ### Time-Series Plots (SAS)
 | Plot | Description |
 |------|-------------|
 | [`NE_States_HHI_OverTime.png`](plots/NE_States_HHI_OverTime.png) | Population-weighted HHI trends by New England state vs. US (1995–2023) |
 | [`NH_HSA_HHI_OverTime.png`](plots/NH_HSA_HHI_OverTime.png) | HHI trends by HSA within New Hampshire |
 
-## Data Sources
+## Data
 
-- **Hospital data:** American Hospital Association (AHA) Annual Survey
-- **Market definitions:** Dartmouth Atlas Health Service Areas (HSAs)
-- **Boundaries:** US Census Bureau TIGER/Line county shapefiles
-
-> **Note:** The underlying hospital data requires a license from the AHA. Raw data is not included in this repository.
+The HHI measures are computed from licensed hospital survey data. Market boundaries are defined using the Dartmouth Atlas Health Service Areas (HSAs), and geographic boundaries use US Census Bureau TIGER/Line county shapefiles. No raw or derived data is included in this repository.
 
 ## Tools
 
